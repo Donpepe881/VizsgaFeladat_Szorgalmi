@@ -1,0 +1,35 @@
+<h1>Vizsgafeladat</h1>
+
+<label for="vizsgaltSzam">Vizsgálandó szám</label>
+<input type="number" id="vizsgaltSzam" class="form-control" [(ngModel)]="szam">
+
+<button type="button" class="btn btn-primary form-control" (click)="EredmenyMentes()">Eredmény mentése</button>
+
+<script>
+
+    function primE(szam) {
+        let oszto = 0;
+        for (let i = 0; i <= szam; i++) {
+            if (szam % i == 0) {
+                oszto++;
+            }
+        }
+        if (oszto == 2) {
+            return "prím";
+        }
+        else {
+            return "NEM prím";
+        }
+    }
+    let primSzam = primE(szam)
+</script>
+
+<div *ngFor="let szoveg of visszajelzoSzoveg">
+    <p>A(z) {{szam}} {{szoveg}}</p>
+</div>
+
+<ul>
+    <li *ngFor="let eredmeny of megoldas">
+        {{eredmeny}}
+    </li>
+</ul>
